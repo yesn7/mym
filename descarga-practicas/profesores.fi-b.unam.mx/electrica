@@ -1,0 +1,409 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <meta  content="text/html; charset=utf-8"  http-equiv="content-type">
+    <title>Posgrado de Ingeniería Eléctrica</title>
+    <link  rel="shorcut icon"  href="http://recursosweb.unam.mx/imagenes/favicon.ico">
+    <link  href="estilo/stiloplantillacuadros.css"  rel="stylesheet"  type="text/css">
+    <link  rel="stylesheet"  href="css/estilocuadros.css"  media="screen"  type="text/css">
+    <!-- Add jQuery library -->
+    <script  type="text/javascript"  src="fancybox/lib/jquery-1.10.1.min.js"></script>
+    <!-- Add fancyBox main JS and CSS files -->
+    <script  type="text/javascript"  src="fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
+    <link  rel="stylesheet"  type="text/css"  href="fancybox/source/jquery.fancybox.css?v=2.1.5"
+
+       media="screen">
+    <script  type="text/javascript">
+		$(document).ready(function() {
+			$('.fancybox').fancybox();
+			$('.fancybox').eq(0).trigger('click');
+
+			// Change title type, overlay closing speed
+			$(".fancybox-effects-a").fancybox({
+				helpers: {
+					title : {
+						type : 'outside'
+					},
+					overlay : {
+						speedOut : 0
+					}
+				}
+			});
+
+			// Disable opening and closing animations, change title type
+			$(".fancybox-effects-b").fancybox({
+				openEffect  : 'none',
+				closeEffect	: 'none',
+
+				helpers : {
+					title : {
+						type : 'over'
+					}
+				}
+			});
+
+			// Set custom style, close if clicked, change title type and overlay color
+			$(".fancybox-effects-c").fancybox({
+				wrapCSS    : 'fancybox-custom',
+				closeClick : true,
+
+				openEffect : 'none',
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					overlay : {
+						css : {
+							'background' : 'rgba(238,238,238,0.85)'
+						}
+					}
+				}
+			});
+
+			// Remove padding, set opening and closing animations, close if clicked and disable overlay
+			$(".fancybox-effects-d").fancybox({
+				padding: 0,
+
+				openEffect : 'elastic',
+				openSpeed  : 150,
+
+				closeEffect : 'elastic',
+				closeSpeed  : 150,
+
+				closeClick : true,
+
+				helpers : {
+					overlay : null
+				}
+			});
+
+			/*
+			 *  Button helper. Disable animations, hide close button, change title type and content
+			 */
+			$('.fancybox-buttons').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+			});
+
+			/*
+			 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+			 */
+			$('.fancybox-thumbs').fancybox({
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+				arrows    : false,
+				nextClick : true,
+
+				helpers : {
+					thumbs : {
+						width  : 50,
+						height : 50
+					}
+				}
+			});
+
+			/*
+			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+			*/
+			$('.fancybox-media')
+				.attr('rel', 'media-gallery')
+				.fancybox({
+					openEffect : 'none',
+					closeEffect : 'none',
+					prevEffect : 'none',
+					nextEffect : 'none',
+
+					arrows : false,
+					helpers : {
+						media : {},
+						buttons : {}
+					}
+				});
+
+			/*
+			 *  Open manually
+			 */
+			$("#fancybox-manual-a").click(function() {
+				$.fancybox.open('1_b.jpg');
+			});
+
+			$("#fancybox-manual-b").click(function() {
+				$.fancybox.open({
+					href : 'iframe.html',
+					type : 'iframe',
+					padding : 5
+				});
+			});
+			$("#fancybox-manual-c").click(function() {
+				$.fancybox.open([
+					{
+						href : '1_b.jpg',
+						title : 'My title'
+					}, {
+						href : '2_b.jpg',
+						title : '2nd title'
+					}, {
+						href : '3_b.jpg'
+					}
+				], {
+					helpers : {
+						thumbs : {
+							width: 75,
+							height: 50
+						}
+					}
+				});
+			});
+		});
+    </script>
+  </head>
+  <body>
+  	 Banner de convocatoria 
+  		<a  class="fancybox"  href="documentos/convocatoria2-3.png"  data-fancybox-group="gallery">
+    </a>
+    
+    <div  id="contorno">
+      <div  id="apDiv2"  style="position: absolute; left: 158px; top: 0px; width: 821px; height: 131px; z-index: 2; vertical-align: middle">
+        <p  class="Estilo2"  align="right"><span  class="Estilo4"><span  class="Estilo3"><a
+
+                 href="http://ingenieria.posgrado.unam.mx/"><img  src="imagenes/posgradounam.jpg"
+
+                   alt=""  align="left"  border="0"  hspace="15"></a></span><img
+
+               src="imagenes/fondo.gif"  alt="barras"  height="27"  width="69">&nbsp;&nbsp;
+            Campo de conocimiento&nbsp;&nbsp;</span><br>
+          <span  class="Estilo3">&nbsp;Ingeniería eléctrica</span></p>
+        <p  class="Estilo2"  align="right"><img  src="imagenes/linea.png"  alt=""
+
+             align="left"  height="1"  hspace="0"  width="830"></p>
+      </div>
+      <div  id="menu"  style="position: absolute; left: 10px; top: 22px; width: 134px; height: 1050px; z-index: 1; text-align: right;">
+        <div  align="right"><br>
+          <br>
+          <br>
+          <a  href="http://posgrado.electrica.unam.mx"  target="_self"><font  size="5">Inicio</font></a>
+          <a  href="pagina/maestrianew.html"  target="_self"><font  size="5">Maestría</font></a>
+          <a  href="pagina/doctoradonew.html"  target="_self"><font  size="5">Doctorado</font></a>
+          <a  href="documentos/perfiles.pdf"  target="_self"><font  size="5">Perfil
+              de Ingreso/Egreso</font></a> <a  href="http://ingenieria.posgrado.unam.mx/sitv3/pla.html"
+
+             target="_self"><font  size="5">Plan de Estudios</font></a> <a  href="pagina/temarionew.html"
+
+             target="_self"><font  size="5">Guía de exámenes</font></a> <a  href="http://posgrado.electrica.unam.mx/pagina/convocatorias.html"
+
+             target="_self"><font  size="5">Convocatorias de ingreso</font></a>
+          <a  href="http://ingenieria.posgrado.unam.mx"  target="_self"><font  size="5">Fechas
+              de reinscripción</font></a> <a  href="pagina/saccnew.html"  target="_self"><font
+
+               size="5">SACC</font></a> <a  href="pagina/tutoresnuevos.html"  target="_self"><font
+
+               size="5">Tutores</font></a> <a  href="Laboratorios/index.html"  target="_self"><font
+
+               size="5">Laboratorios</font></a> <a  href="documentos/Estudiantes%20Graduados.pdf"
+
+             target="_self"><font  sizer="5">Alumnos</font></a> <a  href="documentos/tutorias.pdf"
+
+             target="_self"><font  size="5">Tutorias</font></a> <a  href="pagina/documentosnew.html"
+
+             target="_self"><font  size="5">Documentos</font></a> <a  href="pagina/horariosnew.html"
+
+             target="_self"><font  size="5">Horarios</font></a> <a  href="pagina/avisosnew.html"
+
+             target="_self"><font  size="5">Avisos</font></a> <a  href="documentos/productividad.pdf"
+
+             target="_self"><font  size="5">Artículos</font></a> <a  href="pagina/contactonew.html"
+
+             target="_parent"><font  size="5">Contacto</font></a>
+          <!--Contador de visitas--> <br>
+          <br>
+          <br>
+        </div>
+        <!--
+        <p><span  class="Estilo5">Visitas</span><br>
+          <a  href="http://contador-de-visitas.com"><img  style="border: 0px solid ; display: inline;"
+
+               alt="contador de visitas"  src="http://contador-de-visitas.com/hit.php?id=298033&amp;counter=0"></a>
+        
+        </p>
+        -->
+      </div>
+      <div  id="central"  style="position:absolute; left: 158px; top: 155px; width: 700px; height: 979px; z-index: 1; text-align:center;">
+        <h1><a  href="http://posgrado.telecomunicaciones.unam.mx/">TELECOMUNICACIONES<br>
+          </a></h1>
+        <div  id="circulo11">
+          <ul>
+            <li  class="circle"> <br>
+            </li>
+          </ul>
+        </div>
+        <h2><a  href="http://sitios.iingen.unam.mx/posgradoelectrica/">SISTEMAS<br>
+          </a><a  href="http://sitios.iingen.unam.mx/posgradoelectrica/">
+            ELECTRÓNICOS</a> </h2>
+        <div  id="circulo22">
+          <ul>
+            <li  class="circle2"> <br>
+            </li>
+          </ul>
+        </div>
+        <h3><a  href="http://posgrado.pds.unam.mx">PROCESAMIENTO DIGITAL DE<br>
+            SEÑALES</a></h3>
+        <div  id="circulo33">
+          <ul>
+            <li  class="circle3"> <br>
+            </li>
+          </ul>
+        </div>
+        <h4><a  href="http://www.academicos.ccadet.unam.mx/claustro.instrumentacion/">INSTRUMENTACIÓN</a></h4>
+        <div  id="circulo44">
+          <ul>
+            <li  class="circle4"> <br>
+            </li>
+          </ul>
+        </div>
+        <h5><a  href="http://posgrado.sep.unam.mx/TRIPTICOpotencia.pdf">SISTEMAS<br>
+            ELECTRICOS DE POTENCIA</a></h5>
+        <div  id="circulo55">
+          <ul>
+            <li  class="circle5"> <br>
+            </li>
+          </ul>
+        </div>
+        <h6><a  href="http://posgrado.control.unam.mx/index.php">CONTROL</a></h6>
+        <div  id="circulo66">
+          <ul>
+            <li  class="circle6"> <br>
+            </li>
+          </ul>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <a  href="http://www.ingenieria.unam.mx/"><img  src="imagenes/ingenieria.gif"
+
+             alt=""  height="66"  width="60"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+
+           href="http://www.iingen.unam.mx/es-mx/Paginas/default.aspx"><img  src="imagenes/ii.png"
+
+             alt=""  height="67"  width="63"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+
+           href="http://www.iimas.unam.mx/"><img  src="imagenes/IIMAS.png"  alt=""
+
+             height="66"  width="56"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+
+           href="http://www.ccadet.unam.mx/"><img  src="imagenes/ccadet.gif"  alt=""
+
+             height="66"  width="137"></a> </div>
+      <div  id="noticias"  style="position: absolute; left: 870px; top: 155px; width: 221px; height: 192px; z-index: 0;">
+        <p><span  class="Estilo5">Noticias</span><span  class="Estilo2"><img  src="imagenes/linea.png"
+				
+               alt=""  height="1"  width="225"></span> <br>
+                  
+          Convocatoria de Ingreso 2018-2<br>
+          - Doctorado para
+          <a  href="/pagina/convocatorias.html"> Aspirantes Nacionales</a></p>
+          Convocatoria de Ingreso 2019-1<br>
+          - Doctorado y Maestria para
+          <a  href="/pagina/convocatorias.html"> Aspirantes Extranjeros</a></p>
+        <!--<p><a  href="/documentos/Horarios_Propedeutico_2017.pdf">HORARIOS PARA EL PROPEDÉUTICO 2017<br>
+          </a></p>
+          -->
+          <!--
+        <div  id="becas"  style="position: absolute; left: 870px; top: 500px; width: 222px; height: 231px; z-index: 5; vertical-align: middle; text-align: left;">
+          <p  style="text-align: justify;"><span  class="Estilo5">Becas</span><span
+
+               class="Estilo2"><img  src="file:///C:/Users/Rafael/Desktop/Pagina/subir/imagenes/linea.png"
+
+                 alt=""  height="1"  width="225"></span>El programa de posgrado
+            en Ingeniería Eléctrica se encuentra incorporado al Programa
+            Nacional de Posgrados de Calidad (PNPC) del CONACyT. Adicionalmente,
+            el posgrado cuenta con becas de la Dirección General de Estudios de
+            Posgrado de la UNAM. Es común que todos nuestros alumnos de tiempo
+            completo cuenten con beca. </p>
+          <p  style="text-align: left;"><span  class="Estilo5"><a  href="file:///C:/Users/Rafael/Desktop/Pagina/subir/pagina/sitemap.html"
+
+                 target="_self">SITE MAP</a></span><span  class="Estilo2"><img  src="file:///C:/Users/Rafael/Desktop/Pagina/subir/imagenes/linea.png"
+
+                 alt=""  height="1"  width="225"></span> </p>
+        </div>
+        <div  id="apDiv6"  style="position: absolute; left: 870px; top: 814px; width: 1px; height: 240px; z-index: 6; vertical-align: middle; text-align: left;">
+          <p><span  class="Estilo5">&nbsp;Ubicación</span><span  class="Estilo2"><img
+
+                 src="file:///C:/Users/Rafael/Desktop/Pagina/subir/imagenes/linea.png"
+
+                 alt=""  height="1"  width="225"></span> </p>
+          <br>
+          <a  class="thumbnail"  href="file:///images/ubicacionPosgrado.pdf"  target="_new"><img
+
+               src="file:///C:/Users/Rafael/Desktop/Pagina/subir/imagenes/ubicacion.JPG"
+
+               alt="mapa"  border="0"  height="160"  width="218"><span><img  src="file:///C:/Users/Rafael/Desktop/Pagina/subir/imagenes/ubicacionPos.jpg"
+
+                 alt="mapita"><br>
+              Descargar Ubicación</span></a><br>
+        </div>-->
+        <div  style="text-align: justify;">
+          <div  style="text-align: left;"> </div>
+        </div>
+        <p  class="Estilo5"> </p>
+      </div>
+      
+      <div  id="becas"  style="position: absolute; left: 871px; top: 349px; width: 222px; height: 231px; z-index: 5; vertical-align: middle; text-align: left;">
+        <p  style="text-align: justify;"><span  class="Estilo5">Becas</span><span
+
+             class="Estilo2"><img  src="imagenes/linea.png"  alt=""  height="1"
+
+               width="225"></span>El programa de posgrado en Ingeniería
+          Eléctrica se encuentra incorporado al Programa Nacional de Posgrados
+          de Calidad (PNPC) del CONACyT. Adicionalmente, el posgrado cuenta con
+          becas de la Dirección General de Estudios de Posgrado de la UNAM. Es
+          común que todos nuestros alumnos de tiempo completo cuenten con beca.
+        </p>
+        <p  style="text-align: left;"><span  class="Estilo5"><a  href="pagina/sitemap.html"
+
+               target="_self">SITE MAP</a></span><span  class="Estilo2"><img  src="imagenes/linea.png"
+
+               alt=""  height="1"  width="225"></span> </p>
+      </div>
+      <div  id="apDiv6"  style="position: absolute; left: 869px; top: 658px; width: 1px; height: 240px; z-index: 6; vertical-align: middle; text-align: left;">
+        <p><span  class="Estilo5">&nbsp;Ubicación</span><span  class="Estilo2"><img
+
+               src="imagenes/linea.png"  alt=""  height="1"  width="225"></span>
+        </p>
+        <br>
+        <a  class="thumbnail"  href="/images/ubicacionPosgrado.pdf"  target="_new"><img
+
+             src="imagenes/ubicacion.JPG"  alt="mapa"  border="0"  height="160"
+
+             width="218"><span><img  src="imagenes/ubicacionPos.jpg"  alt="mapita"><br>
+            Descargar Ubicación</span></a><br>
+      </div>
+    </div>
+    <div  style="text-align: justify;">
+      <div  style="text-align: left;"> .</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,157 @@
+<html>
+<head>
+<title> P&aacute;ginas Personales </title>
+
+<script language="JavaScript1.2">
+
+//configure message
+message=" Páginas personales en el Web "
+//animate text in NS6? (0 will turn it off)
+ns6switch=1
+
+var ns6=document.getElementById&&!document.all
+mes=new Array();
+mes[0]=-1;
+mes[1]=-4;
+mes[2]=-7;mes[3]=-10;
+mes[4]=-7;
+mes[5]=-4;
+mes[6]=-1;
+num=0;
+num2=0;
+txt="";
+function jump0(){
+if (ns6&&!ns6switch){
+jump.innerHTML=message
+return
+}
+if(message.length > 6){
+for(i=0; i != message.length;i++){
+txt=txt+"<span style='position:relative;' id='n"+i+"'>"+message.charAt(i)+"</span>"};
+jump.innerHTML=txt;
+txt="";
+jump1a()
+}
+else{
+alert("Your message is to short")
+}
+}
+
+function jump1a(){
+nfinal=(document.getElementById)? document.getElementById("n0") : document.all.n0
+nfinal.style.left=-num2;
+if(num2 != 9){
+num2=num2+3;
+setTimeout("jump1a()",50)
+}
+else{
+jump1b()
+}
+}
+
+function jump1b(){
+nfinal.style.left=-num2;
+if(num2 != 0){num2=num2-3;
+setTimeout("jump1b()",50)
+}
+else{
+jump2()
+}
+}
+
+function jump2(){
+txt="";
+for(i=0;i != message.length;i++){
+if(i+num > -10 && i+num < 7){
+txt=txt+"<span style='position:relative;top:"+mes[i+num]+"'>"+message.charAt(i)+"</span>"
+}
+else{txt=txt+"<span>"+message.charAt(i)+"</span>"}
+}
+jump.innerHTML=txt;
+txt="";
+if(num != (-message.length)){
+num--;
+setTimeout("jump2()",50)}
+else{num=0;
+setTimeout("jump0()",50)}}
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><style type="text/css">
+<!--
+body,td,th {
+	color: #000000;
+}
+body {
+	background-color: #CCCCCC;
+}
+.style1 {
+		font-size: 18px
+		color: #000000;
+}
+.style2 {
+	font-size: 24px;	
+	color: #CCCCCC;
+}
+.style3 {
+		
+	color: #000000;
+}
+.style4 {color: #FFCC00}
+.style5 {font-size: 24px}
+
+-->
+</style>
+</head>
+<body>
+
+<h2>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table width="300" border="0" align="center">
+  <tr>
+    <td align="left"><img src="http://odin.fi-b.unam.mx/imagenes/netscape.gif" width="50" height="50"></td>
+    <td align="center"><img src="http://odin.fi-b.unam.mx/imagenes/exp.gif" width="50" height="50"></td>
+    <td align="right"><img src="http://odin.fi-b.unam.mx/imagenes/moz.gif" width="50" height="50"></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<div  align="center" id="jumpx" style="color:#FFFFF"  class="style5"></div></h4>
+<script>
+if (document.all||document.getElementById){
+jump=(document.getElementById)? document.getElementById("jumpx") : document.all.jumpx
+jump0()
+}
+else
+document.write(message)
+</script>
+
+<body>
+<p>&nbsp;</p>
+<table width="618" border="0" align="center">
+  <tr>
+    <td><p class="style1"><font size="4">La DIE proporciona un excelente servicio de webhosting que usted, como miembro de esta divisi&oacute;n, puede aprovechar en cualquier momento. Nuestro servidor web proporciona servicio las veinticuatro horas del d&iacute;a, los siete d&iacute;as de la semana y los trescientos sesenta y cinco d&iacute;as del a&ntilde;o. De esta manera, su informaci&oacute;n estar&aacute; disponible en todo momento. </font></p>
+    </td>
+  </tr>
+  <tr>
+    <td><p class="style1">&nbsp;</p>
+    <p class="style1"><font size="4"> Dentro del sitio de la DIE, ofrecemos espacio para dos tipos de usuasrios: alumnos y profesores. En ambos casos, su p&aacute;gina personal es agregada a una lista que es visible en los submen&uacute;s del rubro p&aacute;ginas personales. Se les otorgar&aacute; a cada usuario una cantidad de espacio equivalente a 20 MB que tendr&aacute;n a su disposici&oacute;n. </font></p>    </td>
+  </tr>
+  <tr>
+    <td><p class="style1">&nbsp;</p>
+    <p class="style1"><font size="4"> La pol&iacute;tica de la divisi&oacute;n exige que el contenido de las p&aacute;ginas sea correcto, apto y que contribuya en alguna manera a la comunidad. Como es natural el contenido de las p&aacute;ginas personales es y ser&aacute; revisado periodicamente para asegurar lo anterior. Para entrar a las p&aacute;ginas personales dar click <a href="list.php?paginas=profesores">AQU&Iacute;</a></font></p>
+<br><br><br>
+    <p class="style1">&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td><p class="style1"><font size="4"> Para mayores informes comun&iacute;quese con el webmaster de la DIE al correo: </font></p>
+    <p class="style1">&nbsp;</p></td>
+  </tr>
+  
+   <tr>
+    <td><div align="center"><font  size="4" color="#FFFFFF" >webmdie@fi-b.unam.mx </font></div></td>
+  </tr>
+</table>
+<p align="center" class="style1">&nbsp;</p>
+<p  align="center"  >&nbsp;</p>
+</body>
+</html>
+

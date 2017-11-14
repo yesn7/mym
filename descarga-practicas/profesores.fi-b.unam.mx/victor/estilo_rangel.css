@@ -1,0 +1,609 @@
+/**********************************************************************
+**		Estilos dedicados a la Página del Dr. Victor Rangel Licea    **
+**********************************************************************/
+body
+{
+	background : #C0D9D9 url(imagenes/satelite2.jpg);  
+	background-position: center;
+  	background-size: cover;
+  	background-attachment: fixed;
+	font : 9pt Verdana, Geneva, Arial, Helvetica, sans-serif; 
+	margin : 20px 0px; 
+	text-align: center; 
+}
+	
+#contenedor
+{
+	width:950px;
+	background-color:white;
+	margin:auto;
+	border:7px solid #cccccc;
+}
+
+#cabecera
+{
+	font : 10pt Arial,Verdana, Geneva, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #000;
+	height : 180px; 
+	background : url(imagenes/amarillo.jpg);
+	padding: 10px 0px 10px 0px;
+
+}
+
+#menu
+{
+	float:left;
+	width:200px;
+	background-color: #EBF2FE;
+	border: 3px solid #cccccc;
+	margin: 15px 7px;
+}
+
+#central
+{
+	float:right;
+	width: 695px;
+	border: 1px solid #DDDDDD;
+	margin: 15px 10px 15px 0px;
+	padding: 7px;
+	padding-right:15px;
+}
+
+#pie
+{
+	clear:both;
+	text-align:right;
+	color: #CCCCCC ;
+	margin: 15px 20px;
+}
+
+#datos
+{
+	float:left;
+	width:395px;
+	padding: 0px 0px 0px 60px;
+}
+
+#cabecera .titulo
+{
+	text-align:center;
+	font-size:14pt;
+	color:white;
+	text-transform:uppercase;
+	letter-spacing:2px;
+	margin:0px 0px 8px;
+	font-weight:normal;	
+}
+
+#cabecera p.datos
+{
+	text-align: justify;
+	margin: 30px 30px auto 0px;
+}
+
+
+#cabecera img
+{
+	width: 120px;
+	float:left;
+    margin: 5px 10px 0px;
+}
+
+.datos a:visited, .datos a:link
+{
+	color: #0000FF;
+	text-decoration: none;
+} 
+
+.datos a:hover, .datos a:active
+{
+	color: #009900;
+	text-decoration: none;
+}
+
+.correo a:hover, .correo a:active
+{
+	color: #FF6600;
+	text-decoration: none;
+}
+
+#sitios_interes
+{
+	float:right;
+	text-align: justify;
+	width: 420px;
+	color: #5C5C5C;
+	margin: 8px 60px 0px 0px;
+}
+
+#sitios_interes ul
+{
+	padding: 0px 0px;
+	margin: 0px 0px;
+}
+	
+#sitios_interes li
+{
+	display:block;
+	padding-left: 1em;
+	padding-top:0.3em;
+	background: #EEEEEE url('imagenes/menu.gif') repeat-x;
+	height: 1.9em;
+}
+
+#sitios_interes a:visited, #sitios_interes a:link
+{
+	color: #5C5C5C;
+	text-decoration: none;
+} 
+
+#sitios_interes a:hover, #sitios_interes a:active
+{
+	color: #996600;
+	text-decoration: none;
+}
+
+#logo img
+{
+	width:130px;
+	margin: 10px auto;
+}
+
+.title_menu
+{
+	display:block;
+	color: white;
+	background-color:#68729E;
+	text-transform: uppercase;
+	font-weight:normal;
+	font-size: 10pt;
+	letter-spacing:2px;
+	margin: 1px auto;
+	height: 2em;
+	padding-top:5.5px;
+}
+
+#index ol
+{
+	padding: 2px;
+	background-color:white;
+	margin: 25px auto 20px;
+	padding: 3px 3px;
+	list-style: none;
+}
+
+#index li
+{
+	font-weight: bold;
+	height: 1.9em;
+	background: #CCCCCC url('imagenes/menu.gif') repeat-x;
+	margin: 1px 0px;
+	border: 2px outset #DDDDDD;
+	text-align: justify;
+}
+
+#index li a:link, #index li a:visited 
+{
+	padding: 2px 0px 0px 1.8em;
+	display:block;
+	color: 555555;
+	text-decoration:none;
+}
+
+
+#index li:hover, #index li:active 
+{
+	background: #DDDDDD url('imagenes/unam.jpg') no-repeat;
+	background-size: 20px;
+	text-decoration:none;
+}
+
+#pie a:link, #pie a:visited
+{
+	display: block;
+	color: #000099;
+}
+
+#pie a:hover, #pie a:active
+{
+	color: #009900;
+}
+
+.topic
+{
+	border: 2px ridge #B4CDFF;
+	margin: 5px 0px;
+	padding: 2px 5px 7px;
+}
+
+#central h3
+{
+	height: 1.8em;
+	background-color: #E4E4E4;
+	font-weight: bold;
+	padding-top: 5px;
+	margin: 0px 0px;
+}
+
+#central p
+{
+	font-family: Arial;
+	font-size: 10pt;
+	font-weight: normal;
+	text-align: justify;
+	text-indent: 12px;
+}
+
+.mayus
+{
+	margin-top: 10px;
+	text-transform: uppercase;
+	color: #000000;
+}
+
+.mayus a:link, .mayus a:visited
+{
+	text-transform: uppercase;
+	color: #5C5C5C;
+}
+
+.mayus a:hover, .mayus a:active
+{
+	text-transform: uppercase;
+	color: #0066CC;
+	text-decoration: none;
+}
+
+#rdunja img
+{
+	width:100%;
+}
+
+#rdunja img.sm
+{
+	width: 98%;
+	padding: 0px 6px;
+}
+
+.libros
+{
+	height: 180px;
+	width: 100%;
+	border: 2px ridge #B4CDFF;
+	margin: 20px 0px;
+	padding:0px;
+}
+
+.libros .imagen, .marcos .imagen
+{
+	float: left;
+	width: 21%;
+	margin: 0px;
+}
+
+.libros .imagen img, .marcos .imagen img
+{
+	height: 90%;
+	padding: 7px 11px;
+}
+
+.libros .texto, .marcos .texto
+{
+	float: right;
+	width: 78%;
+	height: 100%;
+	border-left: 2px ridge #B4CDFF;
+}
+
+#central .libros .texto p
+{
+	text-align:center;
+	margin:0px;
+	padding-right: 10px;
+	padding-left: 7px;
+}
+#central .marcos .texto p
+{
+
+	font-size:11pt;
+	text-align:center;
+	margin:0px;
+	padding-right: 10px;
+	padding-left: 7px;
+}
+
+.p1
+{
+	padding-top: 30px;
+}
+
+.p3
+{
+	padding-top: 60px;
+}
+
+.p2
+{
+	padding-top: 45px;
+}
+
+.p0
+{
+	padding-top: 10px;
+}
+
+.libros a:link, .libros a:visited
+{
+	color: #5C5C5C;
+	font-weight: bold;
+}
+
+.marcos a:link, .marcos a:visited
+{
+	color: #2C2C2C;
+	font-size:12pt;
+	font-weight: bold;
+}
+
+.libros a:hover, .libros a:active
+{
+	color: #0066CC;
+	text-decoration: none;
+}
+.marcos a:hover, .marcos a:active
+{
+	color: #0066CC;
+	font-size:12pt;
+	text-decoration: none;
+}
+
+a.doc:link, a.doc:visited
+{
+	color: #A30000;
+	font-style: italic;
+}
+
+a.doc:hover, a.doc:active
+{
+	color: #C53030;
+	text-decoration: none;
+	font-style: italic;
+}
+
+.important
+{
+	color: #2E2E9E;
+	font-weight: bold;
+}
+
+.marcos
+{
+	height: 160px;
+	width: 100%;
+	border: 2px ridge #B4CDFF;
+	margin: 5px 0px;
+	padding:0px;
+}
+
+#central li
+{
+	text-align: justify;
+	margin-top:3px;
+}
+
+li a:link, li a:visited
+{
+	color: #0066CC;
+	text-decoration: none;
+	font-weight:bold;
+}
+
+li a:hover, li a:active
+{
+	color: #00CC66;
+	text-decoration: underline;
+}
+ 
+td
+{
+	font-size: 7pt;
+	padding:10px 4px;
+	padding-right:2px;
+	vertical-align:top;
+}
+ 
+.lectures
+{
+	border-collapse:collapse;
+}
+
+table.lectures
+{
+	width:100%;
+}
+
+.lectures td
+{
+	width:50%;
+}
+ 
+.lectures table, .lectures td, .lectures th
+{
+	border:1px inset #0099EE;
+}
+ 
+#central p.phdT
+{
+	border:2px double #CCCCCC;
+	color: #0066EE;
+	font-weight:bold;
+	font-size: 11pt;
+	padding: 5px;
+}
+
+.phdT a:link, .phdT a:visited
+{
+	color: #0066EE;
+}
+
+.phdT a:hover, .phdT a:active
+{
+	color: #773377;
+	text-decoration: none;
+}
+
+#central .small
+{
+	font-size:8pt;
+}
+
+ul.c
+{
+	list-style-type:circle;
+	font-family:Arial;
+}
+
+ul.c td
+{
+	font-family:Verdana;
+}
+
+#central p.responsables
+{
+	margin:0px 15%; 
+	font-size:9pt;"
+}
+
+ul.c td
+{
+	padding:3px;
+}
+
+.distintion
+{
+	font-size: 13pt;
+	text-align: center;
+	font-weight:bold;
+	font-style:italic;
+}
+
+#central .long
+{
+	height:4em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#navcontainer
+{
+background: #f0e7d7;
+margin: 0 auto;
+padding: 1em 0 0 0;
+font-family: georgia, serif;
+
+}
+
+/* to stretch the container div to contain floated list */
+#navcontainer:after
+{
+content: ".";
+display: block;
+line-height: 1px;
+font-size: 1px;
+clear: both;
+float: center
+}
+
+ul#navlist
+{
+list-style: none;
+padding: 0;
+margin: 0 auto;
+width: 100%;
+font-size: 0.8em;
+}
+
+ul#navlist li
+{
+display: block;
+float: left;
+width: 100%;
+background: #CCCCCC url('imagenes/menu.gif') repeat-x;
+margin: 0;
+padding: 0;
+}
+
+ul#navlist li a
+{
+display: block;
+width: 100%;
+padding: 0.5em;
+border-width: 1px;
+border-color: #ffe #aaab9c #ccc #fff;
+border-style: solid;
+color: #777;
+text-decoration: none;
+background: #f7f2ea;
+}
+
+#navcontainer>ul#navlist li a { width: auto; }
+
+ul#navlist li#active a
+{
+background: #f0e7d7;
+color: #2E2EFE;
+}
+
+ul#navlist li a:hover, ul#navlist li#active a:hover
+{
+color: #2E2EFE;
+background: transparent;
+border-color: #aaab9c #fff #fff #ccc;
+}
+/*Creditos: Roberto Ambriz Miranda*/

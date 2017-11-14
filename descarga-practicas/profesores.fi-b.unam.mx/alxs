@@ -1,0 +1,141 @@
+<html>
+<head>
+<!-- Information generated and read by Xara Webstyle. Do not edit this line. [Modular (Theme);TalllerPOO;Theme Color 1;10784376;themecolour1;Accent Color 1;56063;themecolour2;Accent Color 2;12517631;themecolour3;Theme Color 2;16744448;themecolour4;Background Color;16777215;themecolour5;Button & Para Text;0;themecolour7] -->
+<!-- Template design (c) Xara Ltd 2003 -->
+<title>Taller POO</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="generator" content="Web page layout created by Xara Webstyle 4 - http://www.xara.com/webstyle/" />
+<style type="text/css">
+<!--
+table {
+	font: 9pt  arial,helvetica, sans-serif
+}
+body {
+	color: #333333;/*themecolour5%0;*/
+	line-height: 20px;
+	background-repeat: repeat-x;
+	background-color: #FFFFFF;/*themecolour5;*/
+	font: 9pt  arial,helvetica, sans-serif
+}
+p {
+	margin-top: 0px;
+	margin-bottom: 0px;
+
+	}
+	blockquote {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #333333;/*themecolour5%0;*/
+	margin-right: 0px;
+}
+ol {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #333333;/*themecolour5%0;*/
+}
+
+#header {
+	position: absolute;
+	height: auto;
+	width: auto;
+	top: 40px;
+	visibility: visible;
+	z-index: 2;
+	right: 60px;
+}
+
+#logo {
+	position: absolute;
+	height: auto;
+	width: auto;
+	left: 0px;
+	top: 0px;
+	z-index: 1;
+}
+
+#hnavigation {
+	position: absolute;
+	height: auto;
+	width: auto;
+	left: 30px;
+	top: 140px;
+	z-index: 3;
+}
+
+#bgimage {
+	position: absolute;
+	height: auto;
+	width: auto;
+	top: 10px;
+	right: 25px;
+}
+#content {
+	position: absolute;
+	height: auto;
+	width: auto;
+	left: 30px;
+	top: 200px;
+	right: 60px;
+	z-index: 2;
+}
+#content ul {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 20px;
+	color: #333333;/*themecolour5%0;*/
+	list-style-image: url(index_files/index_bullet.gif);
+}
+h1 {
+	font-size: 18px;
+	color: #333333;/*themecolour5%0;*/
+	margin-top: 0px;
+	margin-bottom: 3px;
+}
+h2 {
+	font-size: 16px;
+	color: #bd1094;/*themecolour3;*/
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+#content a:link {
+	color: #666666;/*themecolour5%0;*/
+}
+#content a:visited {
+	color: #999999;
+}
+#content a:link:hover {
+	color: #bd1094;/*themecolour1;*/
+}
+.content {
+	padding-left: 25px;
+}
+
+-->
+</style>
+</head>
+
+<body>
+<div id="header"></div>
+<div id="logo"><img src="index_files/index_logo.gif" editor="Webstyle4" moduleid="TalllerPOO (Project)\index_logo.xws" border="0" /></div>
+<div id="hnavigation"> 
+  <script webstyle4>document.write('<scr'+'ipt src="xaramenu.js">'+'</scr'+'ipt>');document.write('<scr'+'ipt src="index_files/index_hnavbar.js">'+'</scr'+'ipt>');/*img src="index_files/index_hnavbar.gif" moduleid="TalllerPOO (Project)\index_hnavbar_off.xws"*/</script>
+</div>
+<p class="padding">&nbsp;</p>
+<div id="bgimage"><img src="index_files/index_bg.gif" editor="Webstyle4" moduleid="TalllerPOO (Project)\index_bg.xws" border="0" /></div>
+<div id="content"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+      <td valign="top">&nbsp;</td>
+      <td valign="top" class="content"> &nbsp; 
+        <h2 align="center">Taller de Programaci&oacute;n Orientada a Objetos </h2>
+        <p align="center">Junio 21, 2008 </p>
+        <p>&nbsp;</p>
+  <h2>&nbsp;</h2>
+  <!-- End center column text here -->
+  </td>
+  </tr>
+</table>
+
+  
+  </div>
+</body>
+</html>
