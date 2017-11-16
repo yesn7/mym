@@ -1,0 +1,136 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Autor:        Aguilar Enriquez, Paul Sebastian a.k.a. Penserbjorne
+% Fecha:        05/02/2017
+% Descripcion:  Plantilla base para actividades o tareas.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,11pt]{article}                 % Papel tamaño carta, texto de 11pt.
+
+\usepackage[top=2cm, bottom=2cm, left=2.2cm, right=2.2cm]{geometry} % Margenes
+\usepackage[T1]{fontenc}                              % Indicamos la codificacion de las fuentes.
+\usepackage[utf8x]{inputenc}                          % Definimos la codificacion.
+\usepackage{lmodern}                                  % Para poder usar acentos.
+\usepackage[spanish]{babel}                           % Usaremos idioma español.
+\usepackage{amsmath}                                  % Para formulas matematicas.
+\usepackage{graphicx}                                 % Para imagenes.
+\usepackage{float}                                    % Para posicionar objetos.
+\usepackage{booktabs}                                 % Para formatear tablas.
+\usepackage{hyperref}                                 % Para enlaces y referencias.
+\usepackage{enumerate} 
+%\usepackage{colortbl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Los logos tienen posiciones relativas al nombre de la escuela.
+% Cada imagen esta desplazada con respecto al texto, en este caso nombre de la univseridad.
+% No se necesitan paquetes adicionales, el entorno estandar para imagenes de LaTeX puede hacerlo.
+% El truco esta en definir una imagen de tamaño cero, asi no afecta al centrar los titulos.
+\def\logoUNAM{%
+  \begin{picture}(0,0)\unitlength=1cm
+    \put (-3.5,-3) {\includegraphics[width=8em]{images/escudo-unam}}
+  \end{picture}
+}
+
+\def\logoFI{%
+  \begin{picture}(0,0)\unitlength=1cm
+    \put (0.5,-3) {\includegraphics[width=8em]{images/escudo-fi}}
+  \end{picture}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\author{Pérez Navarro Maria Yesica - 414039694}  % Autor de la actividad.
+\title{Previo 04 : Programación en lenguaje Assembly (Ensamblador)}                % Titulo de la actividad.
+\date{dd/mm/yyyy}                                           % Fecha de entrega.
+\def\universidad{Universidad Nacional Autónoma de México}   % Nombre de la universidad.
+\def\facultad{Facultad de Ingeniería}                              % Nombre de la facultdad.
+\def\semestre{2018-1}                                     % Semestre lectivo.
+\def\materia{Lab. Microcontroladores y Microprocesadores - Grupo 03}               % Nombre de la materia y grupo.
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+  
+  % Titulo del documento con logos.
+  \begin{center}
+    \logoUNAM {\Large \universidad} \logoFI\par
+    {\large \facultad}\par
+    \semestre\par
+    \materia\par
+    \@author\par
+    \@date\par
+    \@title
+  \end{center}
+
+  \hrulefill\par
+
+  \pagenumbering{gobble}                              % Oculta el numero de pagina.
+%  \tableofcontents                                    % Crea el indice o tabla de contenido.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  %\newpage                                            % Inserta una pagina nueva.
+  \pagenumbering{arabic}                              % Muestra el numero de pagina.
+  
+  \section{Actividad previa.}                   
+  
+  \begin{enumerate}[a)]
+  	\item Examine el comportamiento de los siguientes segmentos de código. Identifique el resultado de las instrucciones ADD(S) y el estado de las banderas C,Z,N del APSR. 
+  	
+  	\item  En un programa, ¿qué hace la siguiente instrucción?
+  	
+  	\item  Las instrucciones derivadas de B tienen un sufijo, que es una condición que se debe cumplir para realizar la instrucción B. Explique las siguientes sintaxis de la instrucción B con los diferentes sufijos. 
+  	
+  	\begin{table}[H]
+  		\begin{tabular}{|l |l|l|}
+  			\hline
+  			Sufijo/cond & B \{cond\} etiqueta & BX \{cond\} Rm \\ \hline
+  			EQ          &                     &                \\ \hline
+  			NE          &                     &                \\ \hline
+  			CS o HS     &                     &                \\ \hline
+  			CC o LO     &                     &                \\ \hline
+  			MI          &                     &                \\ \hline
+  			PL          &                     &                \\ \hline
+  		\end{tabular}
+  	\centering
+  	\caption{My caption}
+  	\label{my-label}
+  	\end{table}
+  	
+  	\item Explique la operación que realizan las siguientes instrucciones.  
+  	
+  	\begin{table}[H]
+  		\begin{tabular}{|l |l|l|}
+  			\hline
+  			CBNZ Rn, etiqueta  & CBZ Rn, etiqueta  \\ \hline
+  			         &                             \\ \hline
+  		\end{tabular}
+  		\centering
+  		\caption{My caption}
+  		\label{my-label}
+  	\end{table}
+  	
+  	\item Explique la función del siguiente segmento de código, después con un diagrama de flujo ilustre la secuencia de pasos realizada. 
+  	
+  \end{enumerate}
+                    % Insertamos nueva seccion, SI aparece en la tabla de contenido.
+ 
+  
+  \begin{thebibliography}{}                           % Bibliografia
+    \bibitem{ref:cita}                                % Etiqueta con la que se hara la referencia o cita.
+      Como citar: \url{http://www.cva.itesm.mx/biblioteca/pagina_con_formato_version_oct/apa.htm} % URL de apoyo para citar.
+
+    \bibitem{ref:web1}
+      Autor,
+      (Fecha de publicacion),
+      Titulo, paginas,
+      Fecha de recuperacion,
+      Sitio web: \url{http://www.google.com}
+
+    \bibitem{ref:github}
+      Repositorio del proyecto \url{https://github.com/penserbjorne}
+  \end{thebibliography}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

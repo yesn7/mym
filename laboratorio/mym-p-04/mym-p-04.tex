@@ -1,0 +1,183 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Autor:        Aguilar Enriquez, Paul Sebastian a.k.a. Penserbjorne
+% Fecha:        05/02/2017
+% Descripcion:  Plantilla base para actividades o tareas.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,11pt]{article}                 % Papel tamaño carta, texto de 11pt.
+
+\usepackage[top=2cm, bottom=2cm, left=2.2cm, right=2.2cm]{geometry} % Margenes
+\usepackage[T1]{fontenc}                              % Indicamos la codificacion de las fuentes.
+\usepackage[utf8x]{inputenc}                          % Definimos la codificacion.
+\usepackage{lmodern}                                  % Para poder usar acentos.
+\usepackage[spanish]{babel}                           % Usaremos idioma español.
+\usepackage{amsmath}                                  % Para formulas matematicas.
+\usepackage{graphicx}                                 % Para imagenes.
+\usepackage{float}                                    % Para posicionar objetos.
+\usepackage{booktabs}                                 % Para formatear tablas.
+\usepackage{hyperref}                                 % Para enlaces y referencias.
+\usepackage{enumerate} 
+%\usepackage{colortbl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Los logos tienen posiciones relativas al nombre de la escuela.
+% Cada imagen esta desplazada con respecto al texto, en este caso nombre de la univseridad.
+% No se necesitan paquetes adicionales, el entorno estandar para imagenes de LaTeX puede hacerlo.
+% El truco esta en definir una imagen de tamaño cero, asi no afecta al centrar los titulos.
+\def\logoUNAM{%
+  \begin{picture}(0,0)\unitlength=1cm
+    \put (-3.5,-3) {\includegraphics[width=8em]{images/escudo-unam}}
+  \end{picture}
+}
+
+\def\logoFI{%
+  \begin{picture}(0,0)\unitlength=1cm
+    \put (0.5,-3) {\includegraphics[width=8em]{images/escudo-fi}}
+  \end{picture}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\author{Pérez Navarro Maria Yesica - 414039694}  % Autor de la actividad.
+\title{Previo 04 : Programación en lenguaje Assembly (Ensamblador)}                % Titulo de la actividad.
+\date{dd/mm/yyyy}                                           % Fecha de entrega.
+\def\universidad{Universidad Nacional Autónoma de México}   % Nombre de la universidad.
+\def\facultad{Facultad de Ingeniería}                              % Nombre de la facultdad.
+\def\semestre{2018-1}                                     % Semestre lectivo.
+\def\materia{Lab. Microcontroladores y Microprocesadores - Grupo 03}               % Nombre de la materia y grupo.
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+  
+  % Titulo del documento con logos.
+  \begin{center}
+    \logoUNAM {\Large \universidad} \logoFI\par
+    {\large \facultad}\par
+    \semestre\par
+    \materia\par
+    \@author\par
+    \@date\par
+    \@title
+  \end{center}
+
+  \hrulefill\par
+
+  \pagenumbering{gobble}                              % Oculta el numero de pagina.
+%  \tableofcontents                                    % Crea el indice o tabla de contenido.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  %\newpage                                            % Inserta una pagina nueva.
+  \pagenumbering{arabic}                              % Muestra el numero de pagina.
+  
+  \section{Seguridad en la Ejecución.}
+  \begin{table}[H]
+  	\begin{tabular}{|l|l|l|}
+  		\hline
+  		 & Peligro o fuente de energía & Riesgo asociado  \\ \hline
+  		1 & Manejo de Corriente Alterna &Electrochoque    \\ \hline
+  		2 & Manejo de corriente Continua & Daño al equipo \\ \hline
+  	\end{tabular}
+  	\centering
+  \end{table}
+
+\section{Objetivos de aprendizaje.}
+\begin{itemize}
+	\item El alumno aprenderá a realizar ciclos condicionales empleando lenguaje ensamblador.
+	\item  Diseñará la estructura de un programa que resuelva la implementación de un algoritmo iterativo como el cálculo de los primeros elementos de la serie de fibonacci.
+\end{itemize}
+
+\section{Material y equipo.}
+ 
+\begin{itemize}
+	\item Tarjeta de desarrollo.
+	\item CCS IDE. 
+\end{itemize}
+  
+
+  
+\section{Actividad previa.}                   
+  
+  \begin{enumerate}[a)]
+  	\item Examine el comportamiento de los siguientes segmentos de código. Identifique el resultado de las instrucciones ADD(S) y el estado de las banderas C,Z,N del APSR. 
+  	
+  	\item  En un programa, ¿qué hace la siguiente instrucción?
+  	
+  	\item  Las instrucciones derivadas de B tienen un sufijo, que es una condición que se debe cumplir para realizar la instrucción B. Explique las siguientes sintaxis de la instrucción B con los diferentes sufijos. 
+  	
+  	\begin{table}[H]
+  		\begin{tabular}{|l |l|l|}
+  			\hline
+  			Sufijo/cond & B \{cond\} etiqueta & BX \{cond\} Rm \\ \hline
+  			EQ          &                     &                \\ \hline
+  			NE          &                     &                \\ \hline
+  			CS o HS     &                     &                \\ \hline
+  			CC o LO     &                     &                \\ \hline
+  			MI          &                     &                \\ \hline
+  			PL          &                     &                \\ \hline
+  		\end{tabular}
+  	\centering
+  	\caption{My caption}
+  	\label{my-label}
+  	\end{table}
+  	
+  	\item Explique la operación que realizan las siguientes instrucciones.  
+  	
+  	\begin{table}[H]
+  		\begin{tabular}{|l |l|l|}
+  			\hline
+  			CBNZ Rn, etiqueta  & CBZ Rn, etiqueta  \\ \hline
+  			         &                             \\ \hline
+  		\end{tabular}
+  		\centering
+  		\caption{My caption}
+  		\label{my-label}
+  	\end{table}
+  	
+  	\item Explique la función del siguiente segmento de código, después con un diagrama de flujo ilustre la secuencia de pasos realizada. 
+  	
+  \end{enumerate}
+                    % Insertamos nueva seccion, SI aparece en la tabla de contenido.
+ \section{Desarrollo.}
+ Escriba y depure un programa que: 
+ 
+ \begin{enumerate}
+ 	\item Emplee ciclos, para llenar un arreglo (memoria reservada en RAM) de 100 localidades de 1 Byte con la secuencia 0,1,2,…,99. 
+ 	\item En otro ciclo, se realiza la suma (acumulada) de todos los valores de esta lista y la suma parcial se almacena en otra sección de datos.
+ 	
+ 	Para auxiliarse en el direccionamiento de la memoria, defina dos variables donde en una guarde la dirección inicio y en otra la dirección final de cada lista. 
+ 	
+ 	Utilice las instrucciones de carga LDR y almacenamiento STR. Puede auxiliarse de la siguiente plantilla. Agregue las etiquetas y saltos condicionales necesarios.
+ 	
+ 	\item  Escriba un programa para escribir en 10 localidades en RAM la serie de Fibonacci. La serie es 0, 1, 1, 2, 3, 5, 8, 13… Asuma los primeros dos números de la serie: 0,1; calcule el resto. 
+ \end{enumerate}
+  
+  \section{Cuestionario}
+  
+  \begin{enumerate}
+  	\item ¿Para qué sirve la directiva .equ?
+  	\item ¿De qué tipo debe ser una instrucción aritmética, para que tenga efecto en las banderas de condición de programa?
+  	\item ¿Qué instrucciones de salto condicional se puede emplear para realizar ciclos?  Presente en lenguaje ensamblador, la estructura de los ciclos de control: while-do, dowhile, if A<B else, if A>B else, if A= = 0 else. 
+  \end{enumerate}
+
+\section{Conclusiones.}
+  \begin{thebibliography}{}                           % Bibliografia
+    \bibitem{ref:cita}                                % Etiqueta con la que se hara la referencia o cita.
+      Como citar: \url{http://www.cva.itesm.mx/biblioteca/pagina_con_formato_version_oct/apa.htm} % URL de apoyo para citar.
+
+    \bibitem{ref:web1}
+      Autor,
+      (Fecha de publicacion),
+      Titulo, paginas,
+      Fecha de recuperacion,
+      Sitio web: \url{http://www.google.com}
+
+    \bibitem{ref:github}
+      Repositorio del proyecto \url{https://github.com/penserbjorne}
+  \end{thebibliography}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

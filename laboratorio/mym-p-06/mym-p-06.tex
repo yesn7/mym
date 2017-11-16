@@ -1,0 +1,177 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Autor:        Aguilar Enriquez, Paul Sebastian a.k.a. Penserbjorne
+% Fecha:        05/02/2017
+% Descripcion:  Plantilla base para actividades o tareas.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,11pt]{article}                 % Papel tamaño carta, texto de 11pt.
+
+\usepackage[top=2cm, bottom=2cm, left=2.2cm, right=2.2cm]{geometry} % Margenes
+\usepackage[T1]{fontenc}                              % Indicamos la codificacion de las fuentes.
+\usepackage[utf8x]{inputenc}                          % Definimos la codificacion.
+\usepackage{lmodern}                                  % Para poder usar acentos.
+\usepackage[spanish]{babel}                           % Usaremos idioma español.
+\usepackage{amsmath}                                  % Para formulas matematicas.
+\usepackage{graphicx}                                 % Para imagenes.
+\usepackage{float}                                    % Para posicionar objetos.
+\usepackage{booktabs}                                 % Para formatear tablas.
+\usepackage{hyperref}                                 % Para enlaces y referencias.
+\usepackage{enumerate} 
+%\usepackage{colortbl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Los logos tienen posiciones relativas al nombre de la escuela.
+% Cada imagen esta desplazada con respecto al texto, en este caso nombre de la univseridad.
+% No se necesitan paquetes adicionales, el entorno estandar para imagenes de LaTeX puede hacerlo.
+% El truco esta en definir una imagen de tamaño cero, asi no afecta al centrar los titulos.
+\def\logoUNAM{%
+  \begin{picture}(0,0)\unitlength=1cm
+    \put (-3.5,-3) {\includegraphics[width=8em]{images/escudo-unam}}
+  \end{picture}
+}
+
+\def\logoFI{%
+  \begin{picture}(0,0)\unitlength=1cm
+    \put (0.5,-3) {\includegraphics[width=8em]{images/escudo-fi}}
+  \end{picture}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\author{Pérez Navarro Maria Yesica - 414039694}  % Autor de la actividad.
+\title{Previo 06: Programación en lenguaje\\ Assembly (Ensamblador) 3}                % Titulo de la actividad.
+\date{dd/mm/yyyy}                                           % Fecha de entrega.
+\def\universidad{Universidad Nacional Autónoma de México}   % Nombre de la universidad.
+\def\facultad{Facultad de Ingeniería}                              % Nombre de la facultdad.
+\def\semestre{2018-1}                                     % Semestre lectivo.
+\def\materia{Lab. Microcontroladores y Microprocesadores - Grupo 03}               % Nombre de la materia y grupo.
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+  
+  % Titulo del documento con logos.
+  \begin{center}
+    \logoUNAM {\Large \universidad} \logoFI\par
+    {\large \facultad}\par
+    \semestre\par
+    \materia\par
+    \@author\par
+    \@date\par
+    \@title
+  \end{center}
+
+  \hrulefill\par
+
+  \pagenumbering{gobble}                              % Oculta el numero de pagina.
+%  \tableofcontents                                    % Crea el indice o tabla de contenido.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  %\newpage                                            % Inserta una pagina nueva.
+  \pagenumbering{arabic}                              % Muestra el numero de pagina.
+  
+  \section{Seguridad en la Ejecución.}
+  \begin{table}[H]
+  	\begin{tabular}{|l|l|l|}
+  		\hline
+  		 & Peligro o fuente de energía & Riesgo asociado  \\ \hline
+  		1 & Manejo de Corriente Alterna &Electrochoque    \\ \hline
+  		2 & Manejo de corriente Continua & Daño al equipo \\ \hline
+  	\end{tabular}
+  	\centering
+  \end{table}
+
+\section{Objetivos de aprendizaje.}
+\begin{itemize}
+	\item El alumno desarrollará habilidades para la manipulación de datos: bytes, nibbles y bits, haciendo uso de operaciones lógicas como sumas, restas, AND y OR, desplazamientos lógicos, así como reforzar el uso de saltos a subrutinas y llamado a subrutinas y regreso al programa principal. 
+\end{itemize}
+
+\section{Material y equipo.}
+ 
+\begin{itemize}
+	\item Tarjeta de desarrollo.
+	\item CCS IDE.
+	\item Tabla de caracteres ASCII. 
+\end{itemize}
+  
+
+  
+\section{Actividad previa.}                   
+
+\begin{enumerate}[a)]
+
+\item ¿En qué consiste la representación BCD? 
+
+\item  Investigue cómo se guarda en memoria una cadena de texto en lenguaje C (incluyendo formato e indicador  de fin de cadena). 
+
+\item  Describa cómo se convierte una cifra numérica a cadena ASCII y viceversa (qué operación se realiza)
+
+\item  Convierta el número 0x80 (128 decimal), a un conjunto de 3 caracteres ASCII. 
+	
+\end{enumerate}
+
+
+ \section{Desarrollo.}
+
+Escriba un programa que tenga 3 funciones: 
+
+\begin{itemize}
+	\item  Convertir un valor BCD de 4 cifras en su representación ASCII. Por ejemplo, el número 2017 (0x07E1 en hexadecimal), en cuatro cifras BCD: 0x2,0x0,0x1,0x7, en cuatro dígitos ASCII: 0x32,0x30,0x31,0x37. Se forzará el almacenamiento de cada carácter en espacio de un byte, evitando escribir en un espacio de 32 bits y ahorrar espacio de memoria.) 
+	\item  Convertir una cadena de texto de 4 cifras (caracteres ASCII) en su representación numérica. Por ejemplo la cadena “2017” (0x32,0x30,0x31,0x37), convertirla a un número de 16 bits), empleando la ponderación de la posición de cada dígito en el sistema de numeración decimal, por ejemplo:   
+	
+	\item  Empaquetar en su valor real, el valor BCD de 4 dígitos (2017 0x07E1), y contar el número de ‘1’ que tiene el valor numérico en su representación binaria.  
+\end{itemize}
+
+Requerimientos:
+
+Se definen en RAM las variables a emplear:
+\begin{itemize}
+	\item R0 se usará como el contenedor para la opción del menú: 
+	
+	\item El dato numérico BCD de entrada se escribe en una localidad de RAM. El dato en ASCII de salida se escribe en RAM y se agrega el fin de cadena. 
+	\item El dato en ASCII de entrada se escribe en máximo 5 Bytes en RAM ya incluido el fin de cadena. El dato numérico BCD de salida se escribe en una localidad de RAM.
+	\item El valor numérico resultante de empaquetar el BCD se escribe en RAM -El resultado del número de bits en ‘1’ se escribe en RAM. 
+\end{itemize}
+De forma similar a la práctica anterior, se necesita hacer lectura y escritura en RAM. Puede usar funciones y llamado a funciones o saltos a rutinas.  
+
+
+ 
+
+
+  
+  \section{Cuestionario}
+  
+  \begin{enumerate}
+  	 
+  	
+  	\item ¿Cuál es la diferencia entre códigos BCD y ASCII?
+
+  	\item ¿Cómo convierte un número a representación BCD?
+
+  	\item ¿Qué operaciones se realizan para convertir cifras BCD a ASCII y viceversa? 
+  	
+  	\item Escriba un algoritmo para representar un valor numérico en BCD, y éste a ASCII; por ejemplo el valor 109 (0x6D en hexadecimal), representado en 3 bytes como 0x01, 0x00, 0x09. 
+  	  
+  \end{enumerate}
+
+\section{Conclusiones.}
+  \begin{thebibliography}{}                           % Bibliografia
+    \bibitem{ref:cita}                                % Etiqueta con la que se hara la referencia o cita.
+      Como citar: \url{http://www.cva.itesm.mx/biblioteca/pagina_con_formato_version_oct/apa.htm} % URL de apoyo para citar.
+
+    \bibitem{ref:web1}
+      Autor,
+      (Fecha de publicacion),
+      Titulo, paginas,
+      Fecha de recuperacion,
+      Sitio web: \url{http://www.google.com}
+
+    \bibitem{ref:github}
+      Repositorio del proyecto \url{https://github.com/penserbjorne}
+  \end{thebibliography}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

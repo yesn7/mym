@@ -1,0 +1,194 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Autor:        Aguilar Enriquez, Paul Sebastian a.k.a. Penserbjorne
+% Fecha:        05/02/2017
+% Descripcion:  Plantilla base para actividades o tareas.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,11pt]{article}                 % Papel tamaño carta, texto de 11pt.
+
+\usepackage[top=2cm, bottom=2cm, left=2.2cm, right=2.2cm]{geometry} % Margenes
+\usepackage[T1]{fontenc}                              % Indicamos la codificacion de las fuentes.
+\usepackage[utf8x]{inputenc}                          % Definimos la codificacion.
+\usepackage{lmodern}                                  % Para poder usar acentos.
+\usepackage[spanish]{babel}                           % Usaremos idioma español.
+\usepackage{amsmath}                                  % Para formulas matematicas.
+\usepackage{graphicx}                                 % Para imagenes.
+\usepackage{float}                                    % Para posicionar objetos.
+\usepackage{booktabs}                                 % Para formatear tablas.
+\usepackage{hyperref}                                 % Para enlaces y referencias.
+\usepackage{enumerate} 
+%\usepackage{colortbl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Los logos tienen posiciones relativas al nombre de la escuela.
+% Cada imagen esta desplazada con respecto al texto, en este caso nombre de la univseridad.
+% No se necesitan paquetes adicionales, el entorno estandar para imagenes de LaTeX puede hacerlo.
+% El truco esta en definir una imagen de tamaño cero, asi no afecta al centrar los titulos.
+\def\logoUNAM{%
+  \begin{picture}(0,0)\unitlength=1cm
+    \put (-3.5,-3) {\includegraphics[width=8em]{images/escudo-unam}}
+  \end{picture}
+}
+
+\def\logoFI{%
+  \begin{picture}(0,0)\unitlength=1cm
+    \put (0.5,-3) {\includegraphics[width=8em]{images/escudo-fi}}
+  \end{picture}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\author{Pérez Navarro Maria Yesica - 414039694}  % Autor de la actividad.
+\title{Práctica 07: Puertos de entrada/salida.}                % Titulo de la actividad.
+\date{dd/mm/yyyy}                                           % Fecha de entrega.
+\def\universidad{Universidad Nacional Autónoma de México}   % Nombre de la universidad.
+\def\facultad{Facultad de Ingeniería}                              % Nombre de la facultdad.
+\def\semestre{2018-1}                                     % Semestre lectivo.
+\def\materia{Lab. Microcontroladores y Microprocesadores - Grupo 03}               % Nombre de la materia y grupo.
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+  
+  % Titulo del documento con logos.
+  \begin{center}
+    \logoUNAM {\Large \universidad} \logoFI\par
+    {\large \facultad}\par
+    \semestre\par
+    \materia\par
+    \@author\par
+    \@date\par
+    \@title
+  \end{center}
+
+  \hrulefill\par
+
+  \pagenumbering{gobble}                              % Oculta el numero de pagina.
+%  \tableofcontents                                    % Crea el indice o tabla de contenido.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  %\newpage                                            % Inserta una pagina nueva.
+  \pagenumbering{arabic}                              % Muestra el numero de pagina.
+  
+  \section{Seguridad en la Ejecución.}
+  \begin{table}[H]
+  	\begin{tabular}{|l|l|l|}
+  		\hline
+  		 & Peligro o fuente de energía & Riesgo asociado  \\ \hline
+  		1 & Manejo de Corriente Alterna &Electrochoque    \\ \hline
+  		2 & Manejo de corriente Continua & Daño al equipo \\ \hline
+  	\end{tabular}
+  	\centering
+  \end{table}
+
+\section{Objetivos de aprendizaje.}
+\begin{itemize}
+	\item El alumno programará los Puertos de Entrada/Salida del procesador ARM M4 tanto en lenguaje ensamblador como en lenguaje C, para emplearlos como puertos digitales de Propósito General, e implementará la conexión de hardware externo al microcontrolador tomando en cuenta los parámetros eléctricos nominales de las terminales. 
+\end{itemize}
+
+\section{Material y equipo.}
+ 
+\begin{itemize}
+	\item Hoja de datos del microcontrolador TM4C1294NCPDT. 
+	\item Guía mínima, Worksheet Impresa. 
+	\item Sistema de desarrollo. 
+	\item Cable BNC y Osciloscopio. 
+	\item Leds, Switches N.O. y resistencias de 330Ohms a 1kOhm, alambre AWG22.  
+\end{itemize}
+  
+
+  
+\section{Actividad previa.}                   
+
+ \begin{enumerate}[a)]
+	\item Presente un diagrama de conexión de una Resistencia de Pull-up y Pull-down y explique su funcionamiento.
+	
+	\item  Describa la función de los siguientes registros de los puertos de E/S y su configuración tras un Reset. Indique la dirección de cada registro en el mapa de memoria. 
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|c|l|l|}
+			\hline
+			Registro                                                                   & Función & \begin{tabular}[c]{@{}l@{}}Estado\\ en reset\end{tabular} \\ \hline
+			\begin{tabular}[c]{@{}c@{}}GPIO DATA\\  Dir: \_\_\_\_\_\_\_\end{tabular} &         &                                                           \\ \hline
+			\begin{tabular}[c]{@{}c@{}}GPIO DIR \\  Dir: \_\_\_\_\_\_\_\end{tabular} &         &                                                           \\ \hline
+			\begin{tabular}[c]{@{}c@{}}GPIOAFSEL\\ Dir: \_\_\_\_\_\_\_\end{tabular}    &         &                                                           \\ \hline
+			\begin{tabular}[c]{@{}c@{}}GPIOPUR\\  Dir: \_\_\_\_\_\_\_\end{tabular}   &         &                                                           \\ \hline
+			\begin{tabular}[c]{@{}c@{}}GPIOPDR\\ Dir: \_\_\_\_\_\_\_\end{tabular}      &         &                                                           \\ \hline
+			\begin{tabular}[c]{@{}c@{}}GPIODEN\\ Dir: \_\_\_\_\_\_\_\end{tabular}      &         &                                                           \\ \hline
+			\begin{tabular}[c]{@{}c@{}}GPIOLOCK\\ Dir: \_\_\_\_\_\_\_\end{tabular}     &         &                                                           \\ \hline
+			\begin{tabular}[c]{@{}c@{}}GPIOPCTL\\ Dir: \_\_\_\_\_\_\_\end{tabular}     &         &                                                           \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	\item Describa la secuencia de pasos secuenciales para programar un puerto paralelo como digital (entrada y salida). 
+	
+	\item Describa el modo de funcionamiento de bits direccionables (o direccionamiento de bits específico) en un puerto GPIO.
+	
+	\item Para hacer lectura y escritura de todos los bits de un puerto, ¿cuál es el registro al cual se hace acceso de lectura/escritura? 
+	
+	\item ¿Cómo se hace referencia a una dirección de un registro en lenguaje C?  
+	
+	\item Revise (y en medida de lo posible ejecute en la tarjeta de desarrollo) los programas blink.asm, simpleIO.asm, main.c y main2.c  considerando el hardware de la tarjeta Tiva TM4C1293. 
+	\\
+	Explique detalladamente lo que hace cada programa. NOTA: para los programas blink.asm, simpleIO.asm incluya los archivos $macros.s$ y $gpio_regs.s$ en la carpeta del proyecto. 
+	\\ 
+	Explique detalladamente lo que hace cada programa. 
+	
+\end{enumerate} 
+
+\section{Desarrollo}
+ 
+En lenguaje ensamblador: Incluya los archivos $macro.s$ y $gpio_regs.s$ en su programa. El archivo macros.s contiene la macro (o pseudo instrucción) para cargar un valor de 32 bits en un registro. El archivo $gpio_regs.s$ contiene los nombre y las direcciones asociadas de los registros de puertos GPIO. \\
+ Implemente una rutina de inicialización para las terminales PH0 y PH1 como de salida digital y las terminales PK5 y PK7 como de entrada digital. Identifique las terminales. Conecte en las terminales de salida un Led en cada una empleando una resistencia limitadora de corriente. Su activación se hará con lógica positiva. Conecte en las terminales de entrada un Switch en cada una alambrados con lógica positiva. 
+\\
+Implemente un ciclo continuo para leer  el estado de los switches y reflejarlo en los Leds de acuerdo a la siguiente tabla: 
+\\
+Determine si es necesario configurar el registro de resistencias de Pull-up o Pull-down.
+\\
+ En lenguaje C:  Realice el programa con la misma funcionalidad. Puede incluir el archivo tm4c1294ncpdt.h 
+  
+  \section{Cuestionario}
+  
+  \begin{enumerate}
+  	 
+  	
+  	\item ¿Cómo puede acceder a las terminales empleadas en el programa de forma específica? 
+
+  	\item Sea el registro $GPIO_PORTA_DATA_R$ un registro definido en lenguaje C conteniendo el dato 0x92. ¿qué operación realiza las siguientes sentencias en lenguaje C? Especifique el resultado en formato binario y hexadecimal.  
+  	
+  	\begin{itemize}
+  \item $GPIO_PORTA_DATA_R ^= 0x01$
+  \item $GPIO_PORTA_DATA_R |= 0x01 $
+  \item $GPIO_PORTA_DATA_R \&= 0x10$
+  \item $GPIO_PORTA_DATA_R \&= (~0x10) $	
+    \end{itemize}
+Explique qué función realiza cada sentencia según la $máscara$ (valor del lado derecho del signo $igual$). 
+
+  	\item Especifique la duración de la siguiente función de retardo. Para esto, investigue la duración en ciclos de reloj que tarda cada instrucción en la subrutina y calcule las veces que se ejecutan en cada llamada.
+  	
+  	\item Determine el valor de la carga inicial para que esta rutina tenga una duración de 1 segundo. 
+  	  
+  \end{enumerate}
+
+\section{Conclusiones.}
+  \begin{thebibliography}{}                           % Bibliografia
+    \bibitem{ref:cita}                                % Etiqueta con la que se hara la referencia o cita.
+      Como citar: \url{http://www.cva.itesm.mx/biblioteca/pagina_con_formato_version_oct/apa.htm} % URL de apoyo para citar.
+
+    \bibitem{ref:web1}
+      Autor,
+      (Fecha de publicacion),
+      Titulo, paginas,
+      Fecha de recuperacion,
+      Sitio web: \url{http://www.google.com}
+
+    \bibitem{ref:github}
+      Repositorio del proyecto \url{https://github.com/penserbjorne}
+  \end{thebibliography}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

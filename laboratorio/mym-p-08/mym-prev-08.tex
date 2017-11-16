@@ -1,0 +1,110 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Autor:        Aguilar Enriquez, Paul Sebastian a.k.a. Penserbjorne
+% Fecha:        05/02/2017
+% Descripcion:  Plantilla base para actividades o tareas.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,11pt]{article}                 % Papel tamaño carta, texto de 11pt.
+
+\usepackage[top=2cm, bottom=2cm, left=2.2cm, right=2.2cm]{geometry} % Margenes
+\usepackage[T1]{fontenc}                              % Indicamos la codificacion de las fuentes.
+\usepackage[utf8x]{inputenc}                          % Definimos la codificacion.
+\usepackage{lmodern}                                  % Para poder usar acentos.
+\usepackage[spanish]{babel}                           % Usaremos idioma español.
+\usepackage{amsmath}                                  % Para formulas matematicas.
+\usepackage{graphicx}                                 % Para imagenes.
+\usepackage{float}                                    % Para posicionar objetos.
+\usepackage{booktabs}                                 % Para formatear tablas.
+\usepackage{hyperref}                                 % Para enlaces y referencias.
+\usepackage{enumerate} 
+%\usepackage{colortbl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Los logos tienen posiciones relativas al nombre de la escuela.
+% Cada imagen esta desplazada con respecto al texto, en este caso nombre de la univseridad.
+% No se necesitan paquetes adicionales, el entorno estandar para imagenes de LaTeX puede hacerlo.
+% El truco esta en definir una imagen de tamaño cero, asi no afecta al centrar los titulos.
+\def\logoUNAM{%
+  \begin{picture}(0,0)\unitlength=1cm
+    \put (-3.5,-3) {\includegraphics[width=8em]{images/escudo-unam}}
+  \end{picture}
+}
+
+\def\logoFI{%
+  \begin{picture}(0,0)\unitlength=1cm
+    \put (0.5,-3) {\includegraphics[width=8em]{images/escudo-fi}}
+  \end{picture}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\author{Pérez Navarro Maria Yesica - 414039694}  % Autor de la actividad.
+\title{Previo 08: Puertos de entrada/salida 2.}                % Titulo de la actividad.
+\date{dd/mm/yyyy}                                           % Fecha de entrega.
+\def\universidad{Universidad Nacional Autónoma de México}   % Nombre de la universidad.
+\def\facultad{Facultad de Ingeniería}                              % Nombre de la facultdad.
+\def\semestre{2018-1}                                     % Semestre lectivo.
+\def\materia{Lab. Microcontroladores y Microprocesadores - Grupo 03}               % Nombre de la materia y grupo.
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+  
+  % Titulo del documento con logos.
+  \begin{center}
+    \logoUNAM {\Large \universidad} \logoFI\par
+    {\large \facultad}\par
+    \semestre\par
+    \materia\par
+    \@author\par
+    \@date\par
+    \@title
+  \end{center}
+
+  \hrulefill\par
+
+  \pagenumbering{gobble}                              % Oculta el numero de pagina.
+%  \tableofcontents                                    % Crea el indice o tabla de contenido.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  %\newpage                                            % Inserta una pagina nueva.
+  \pagenumbering{arabic}                              % Muestra el numero de pagina.
+  
+  \section{Actividad previa.}                   
+  
+  \begin{enumerate}[a)]
+  	\item ¿Para qué sirve la directiva \#define? 
+  	
+  	\item ¿Qué es una variable global y una local? 
+  	
+  	\item ¿Cómo se hace referencia a una dirección de un registro en lenguaje C empleando la directiva \#define? 
+  	
+  	\item Describa el modo de funcionamiento de bits direccionables (o direccionamiento de bits específico) en un puerto GPIO. 
+  	En los programas, main.c y main2.c  complete los valores de configuración faltantes (marcados como (a), (b), etc… ) considerando para el procesador empleado TM4C1294. Tome en cuenta los operadores lógicos en C :$ ^= , |= , \&= $. 
+  	
+  	\item Escriba el código para implementar un retardo de aproximadamente 1 segundo y agregarlo entre cada cambio de estado del LED(2). 
+  	
+  \end{enumerate}
+                    % Insertamos nueva seccion, SI aparece en la tabla de contenido.
+ 
+  
+  \begin{thebibliography}{}                           % Bibliografia
+    \bibitem{ref:cita}                                % Etiqueta con la que se hara la referencia o cita.
+      Como citar: \url{http://www.cva.itesm.mx/biblioteca/pagina_con_formato_version_oct/apa.htm} % URL de apoyo para citar.
+
+    \bibitem{ref:web1}
+      Autor,
+      (Fecha de publicacion),
+      Titulo, paginas,
+      Fecha de recuperacion,
+      Sitio web: \url{http://www.google.com}
+
+    \bibitem{ref:github}
+      Repositorio del proyecto \url{https://github.com/penserbjorne}
+  \end{thebibliography}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
