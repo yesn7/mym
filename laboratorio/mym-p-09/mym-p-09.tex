@@ -39,7 +39,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \author{Pérez Navarro Maria Yesica - 414039694}  % Autor de la actividad.
-\title{Práctica 08: Puertos de entrada/salida 2.}                % Titulo de la actividad.
+\title{Práctica 09: Puertos de entrada/salida 3.}                % Titulo de la actividad.
 \date{dd/mm/yyyy}                                           % Fecha de entrega.
 \def\universidad{Universidad Nacional Autónoma de México}   % Nombre de la universidad.
 \def\facultad{Facultad de Ingeniería}                              % Nombre de la facultdad.
@@ -85,17 +85,21 @@
 
 \section{Objetivos de aprendizaje.}
 \begin{itemize}
-	\item El alumno programará los Puertos de Entrada/Salida del procesador ARM M4 tanto en lenguaje ensamblador como en lenguaje C, para emplearlos como puertos digitales de Propósito General, e implementará la conexión de hardware externo al microcontrolador tomando en cuenta los parámetros eléctricos nominales de las terminales. 
+	\item El alumno programará los Puertos de Entrada/Salida del procesador ARM M4. 
 \end{itemize}
 
 \section{Material y equipo.}
  
 \begin{itemize}
-	\item Hoja de datos del microcontrolador TM4C1294NCPDT. 
-	\item Guía mínima, Worksheet Impresa. 
+	\item Hojas de datos de LCD 16x2 genérico 
+	\item Programas proporcionados. 
 	\item Sistema de desarrollo. 
-	\item Cable BNC y Osciloscopio. 
-	\item Leds, Switches N.O. y resistencias de 330Ohms a 1kOhm, alambre AWG22.  
+	\item Display LCD 16x2. 
+	\item Teclado Matricial 4x4.
+	\item Cables jumper. 
+	\item Headers macho o hembra de dos líneas para soldar a la tarjeta de desarrollo y acceder a los pines que no disponen de terminales de conexión. 
+	\item LEDs y resistencias para desplegar datos de salida. 
+	\item Presentar el teclado y LCD ya conectados al sistema de desarrollo.   
 \end{itemize}
   
 
@@ -103,44 +107,80 @@
 \section{Actividad previa.}                   
 
   \begin{enumerate}[a)]
-	\item ¿Para qué sirve la directiva \#define? 
+	\item  Soldar las terminales Header para acceder a las terminales.  
 	
-	\item ¿Qué es una variable global y una local? 
+	\item  Teclado Matricial 4x4. 
 	
-	\item ¿Cómo se hace referencia a una dirección de un registro en lenguaje C empleando la directiva \#define? 
+	Estudie el funcionamiento de un teclado matricial de 4x4 junto con el código proporcionado, consistente en 3 archivos que deberá incluir en un proyecto.  
 	
-	\item Describa el modo de funcionamiento de bits direccionables (o direccionamiento de bits específico) en un puerto GPIO. 
-	En los programas, main.c y main2.c  complete los valores de configuración faltantes (marcados como (a), (b), etc… ) considerando para el procesador empleado TM4C1294. Tome en cuenta los operadores lógicos en C :$ ^= , |= , \&= $. 
+	Considere que el escaneo del teclado se realiza activando las líneas de los renglones y leyendo el puerto donde se conectan las columnas. 
 	
-	\item Escriba el código para implementar un retardo de aproximadamente 1 segundo y agregarlo entre cada cambio de estado del LED(2). 
+	Considere que las líneas de entrada para las columnas deben tener un estado definido, por lo que se recomienda activar las resistencias de Pull-down internas en caso de no implementarlas externamente. 
+	
+	Implemente el circuito para el teclado matricial. Considere que las teclas A,B,C,D,$*$ y \# corresponden a los números 10-15 cuando se use la identificación de la tecla presionada y su despliegue en 4 Leds.
+	
+	\item  Display LCD de 16 caracteres x 2 Líneas. 
+	
+	Estudie el funcionamiento del LCD con el material proporcionado. Resuma en un diagrama de Flujo la secuencia de pasos empleada para inicializar el LCD que se emplea en el programa proporcionado. Implemente las conexiones para el LCD (5 o 3 V). 
+	
 	
 \end{enumerate}
-% Insertamos nueva seccion, SI aparece en la tabla de 
 
 
 \section{Desarrollo}
+ Teclado Matricial 4x4. 
  
-Implemente una rutina de inicialización para las terminales PH0 y PH1 como de salida digital y las terminales PK5 y PK7 como de entrada digital. Identifique las terminales. Conecte en las terminales de salida un Led en cada una empleando una resistencia limitadora de corriente. Su activación se hará con lógica positiva. Conecte en las terminales de entrada un Switch en cada una alambrados con lógica positiva. 
-\\
-Implemente un ciclo continuo para leer  el estado de los switches y reflejarlo en los Leds de acuerdo a la siguiente tabla: 
-\\
-Determine si es necesario configurar el registro de resistencias de Pull-up o Pull-down. Declare en el archivo fuente, los nombres de los registros empleados y sus direcciones empleando la directiva \#define. Consulte el archivo $tm4c1294ncpdt.h$ 
+ \begin{enumerate}[a)]
+ \item Con el Programa fuente proporcionado, estudie su funcionamiento y agregue la  configuración de los puertos que se emplean para el escaneo del teclado. 
+ 
+ Use el Puerto M (bits 3:0) como el controlador de los renglones y el Puerto H (bits 3:0) para leer las columnas.  
+ 
+ Use el Puerto N (bits 3:0) para desplegar en LEDs el valor de la tecla presionada. 
+ 
+ \item  Visualice en la sesión de Debug todas las variables que pueden cambiar durante la ejecución normal del programa. Note que la variable $Key_Pressed$ corresponde al carácter mapeado en el arreglo KeyboardTable, por lo que en la sesión de Debug, podrá apreciar esta variable como una variable tipo char y codificada como ASCII. 
+\end{enumerate}
+ 
+ Display LCD de 16 caracteres x 2 Líneas. 
+ 
+  \begin{enumerate}[a)]
+ 	\item  Con el Programa fuente proporcionado, estudie su funcionamiento y agregue la  configuración de los puertos que se emplean para el manejo del LCD.  
+ 	
+ 	Use el Puerto K(bits7:0) para el bus de datos del LCD y el Puerto L(bits 3:0) para las líneas de control.  Se proporcionan las rutinas para escribir un comando al LCD y para escribir caracteres.  
+ 	
+ 	
+ 	\item  En el programa no se lee el Bit de BUSY del LCD, por lo que se considera un retardo después de cada escritura que asegure su funcionamiento. Mejore el programa escribiendo una rutina que lea este Bit. Considere que se tiene que reconfigurar el puerto de datos como de entrada para leer este bit y regresarlo a puerto de salida cuando ya no se requiera leer el bit BUSY.
+ 	
+ 	\item  Defina como mensaje a mostrar su nombre completo y despliéguelo en el LCD empleando desplazamiento de la pantalla a la izquierda.  
+ 	
+ 	\item  Visualice en la sesión de Debug todas las variables que pueden cambiar durante la ejecución normal del programa. 
+ 	
+ \end{enumerate}
+ 
  
   \section{Cuestionario}
   
-  \begin{enumerate}
+  Teclado matricial. 
+  
+  \begin{enumerate}[a)]
 
-  	\item Sea el registro $GPIO_PORTA_DATA_R$ un registro definido en lenguaje C conteniendo el dato 0x92. ¿qué operación realiza las siguientes sentencias en lenguaje C? Especifique el resultado en formato binario y hexadecimal.  
+  	\item  Explique lo que pasa cuando comenta las siguientes líneas en el código del Teclado Matricial.    
   	
-  	\begin{itemize}
-  \item $GPIO_PORTA_DATA_R ^= 0x01$
-  \item $GPIO_PORTA_DATA_R |= 0x01 $
-  \item $GPIO_PORTA_DATA_R \&= 0x10$
-  \item $GPIO_PORTA_DATA_R \&= (~0x10) $	
-    \end{itemize}
-Explique qué función realiza cada sentencia según la $máscara$ (valor del lado derecho del signo $igual$). 
+    \item  Explique la función que cumple cada sentencia por separado. 
+    
+    \item  Explique para qué sirve la declaración de la variable: 
   	  
   \end{enumerate}
+
+Display LCD. 
+
+  \begin{enumerate}[a)]
+	\item El programa proporcionado escribe datos al LCD por medio de 8 bits. Otra forma de hacerlo es con 4 bits, Primero configurando el LCD para este modo de trabajo y después enviando la parte alta del dato y después la parte baja.
+	 
+	   Escriba la rutina que controle el LCD con 4 bits para el bus de datos. 
+	
+\end{enumerate}
+
+
 
 \section{Conclusiones.}
   \begin{thebibliography}{}                           % Bibliografia

@@ -39,7 +39,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \author{Pérez Navarro Maria Yesica - 414039694}  % Autor de la actividad.
-\title{Práctica 08: Puertos de entrada/salida 2.}                % Titulo de la actividad.
+\title{Práctica 10: Interrupciones SysTicK y GPIOs.}                % Titulo de la actividad.
 \date{dd/mm/yyyy}                                           % Fecha de entrega.
 \def\universidad{Universidad Nacional Autónoma de México}   % Nombre de la universidad.
 \def\facultad{Facultad de Ingeniería}                              % Nombre de la facultdad.
@@ -85,17 +85,17 @@
 
 \section{Objetivos de aprendizaje.}
 \begin{itemize}
-	\item El alumno programará los Puertos de Entrada/Salida del procesador ARM M4 tanto en lenguaje ensamblador como en lenguaje C, para emplearlos como puertos digitales de Propósito General, e implementará la conexión de hardware externo al microcontrolador tomando en cuenta los parámetros eléctricos nominales de las terminales. 
+	\item El alumno aplicará la técnica de ejecución de módulos o subrutinas de alta prioridad, síncrona (SysTick) o asíncrona (GPIOs) empleando Interrupciones en el Nucleo ARM. 
 \end{itemize}
 
 \section{Material y equipo.}
  
 \begin{itemize}
-	\item Hoja de datos del microcontrolador TM4C1294NCPDT. 
-	\item Guía mínima, Worksheet Impresa. 
-	\item Sistema de desarrollo. 
-	\item Cable BNC y Osciloscopio. 
-	\item Leds, Switches N.O. y resistencias de 330Ohms a 1kOhm, alambre AWG22.  
+	\item Tarjeta de desarrollo y ambiente IDE CCS. 
+	\item 1 Encoder Rotativo (En tarjeta o el dispositivo simple)
+	\item Resistencias de 1KOhm
+	\item Capacitores de 100nF/0.1uF (Nomenclatura 104)
+	\item Leds
 \end{itemize}
   
 
@@ -103,44 +103,70 @@
 \section{Actividad previa.}                   
 
   \begin{enumerate}[a)]
-	\item ¿Para qué sirve la directiva \#define? 
+	\item En un Microcontrolador, Microprocesador, ¿en qué consisten la técnica de Polling (encuesta) y la técnica de interrupción?
 	
-	\item ¿Qué es una variable global y una local? 
+	\item ¿Qué es un vector de Interrupción, una ISR, y la bandera de Interrupción?.
 	
-	\item ¿Cómo se hace referencia a una dirección de un registro en lenguaje C empleando la directiva \#define? 
+	\item Describa las características del Código Gray.
 	
-	\item Describa el modo de funcionamiento de bits direccionables (o direccionamiento de bits específico) en un puerto GPIO. 
-	En los programas, main.c y main2.c  complete los valores de configuración faltantes (marcados como (a), (b), etc… ) considerando para el procesador empleado TM4C1294. Tome en cuenta los operadores lógicos en C :$ ^= , |= , \&= $. 
+	\item ¿Cómo funciona un encoder y cuál es su conexión eléctrica?
 	
-	\item Escriba el código para implementar un retardo de aproximadamente 1 segundo y agregarlo entre cada cambio de estado del LED(2). 
+	\item ¿Cómo se detecta el sentido de giro en un encoder?
+	
+	\item Escriba las líneas de código con sus correspondientes comentarios, en un archivo fuente 
+	para configurar el bit 0 del Puerto N de la tarjeta TIVA como salida, y el bit 0 del puerto M 
+	como  entrada.  Alambre  un  Push-button    normalmente  abierto  a  esta  entrada,  para  que 
+	cuando lo presione, entregue un ‘1’ lógico. En consecuencia configure la entrada para que 
+	esta acción se lea como un ‘1’ en la terminal PM0.  
+	
 	
 \end{enumerate}
-% Insertamos nueva seccion, SI aparece en la tabla de 
-
+% Insertamos nueva seccion, SI aparece en la tabla de contenido.
 
 \section{Desarrollo}
+Uso del Timer SysTick por Polling:
  
-Implemente una rutina de inicialización para las terminales PH0 y PH1 como de salida digital y las terminales PK5 y PK7 como de entrada digital. Identifique las terminales. Conecte en las terminales de salida un Led en cada una empleando una resistencia limitadora de corriente. Su activación se hará con lógica positiva. Conecte en las terminales de entrada un Switch en cada una alambrados con lógica positiva. 
-\\
-Implemente un ciclo continuo para leer  el estado de los switches y reflejarlo en los Leds de acuerdo a la siguiente tabla: 
-\\
-Determine si es necesario configurar el registro de resistencias de Pull-up o Pull-down. Declare en el archivo fuente, los nombres de los registros empleados y sus direcciones empleando la directiva \#define. Consulte el archivo $tm4c1294ncpdt.h$ 
+ \begin{enumerate}[a)]
+ \item Los registros SysTick Control and Status Register (STCTL), SysTick Reload Value Register (STRELOAD) controlan toda la configuración de este Timer. Identifique el nombre de estos registros en el archivo de cabecera tm4c1294ncpdt.h Configure de los registros del SysTick para Modo continuo (Multi-shooting), sin interrupciones y con fuente de reloj PIOSC/4. Considerando que el SysClk = PIOSC = 16MHz, calcule la carga del registro LOAD (N incrementos del contador) para que produzca una cuenta de 1 ms y otra de 500 ms. Habilite la interrupción del SysTick y en la ISR correspondiente cambien el estado lógico del bit PN0. Pruebe ambos valores de carga observando el estado del PN0 en el osciloscopio. 
+ 	
+ \end{enumerate}
+ 
+Uso del Timer SysTick por Interrupción: 
+  \begin{enumerate}[b)]
+ 	\item Habilite en el registro de control del SysTick las Interrupciones. Esta interrupción pasa directamente al NVIC, sin activar registros “Mask” por lo que es una interrupción no mascarable, es decir, que siempre las gestiona el NVIC cuando se activan desde el periférico. 
+  \end{enumerate}
+ 
+   \begin{enumerate}[c)]
+ 	\item En la ISR del SysTick,  use una variable para llevar la cuenta del número de veces que esta ISR se ejecuta. 
+ 	
+ \end{enumerate}
+
+Uso del Encoder por Interrupción 
+    \begin{enumerate}[d)]
+ 	\item  Conecte el Encoder ahora en el Puerto M (Pines M1 y M0), configure como entrada y dependiendo del hardware, configure o no resistencias de Pull up/down. Agregue los capacitores como antirebote para las líneas del encoder.  Habilite  la Interrupción de los pines M0 y M1 en el registro Interrupt Mask (IM). Habilite la gestión de interrupciones del Puerto M  en el NVIC, identificando en cuál registro de habilitación $NVIC_ENx$ se ubica el bit de la interrupción del Puerto M; el número de Interrupción del puerto M es el número:       Configure la generación de interrupción en transiciones de ambos niveles (Edges). 
+ 	
+ 	En la ISR del puerto M, use una variable para llevar la cuenta del número de transiciones que ocurren en las líneas del encoder.  Al mismo tiempo, escriba una 
+ 	rutina que determine el sentido de giro del encoder; considere el estado anterior y el estado actual. 
+ 	
+ 	
+ \end{enumerate}
  
   \section{Cuestionario}
+   
   
-  \begin{enumerate}
+  \begin{enumerate}[a)]
 
-  	\item Sea el registro $GPIO_PORTA_DATA_R$ un registro definido en lenguaje C conteniendo el dato 0x92. ¿qué operación realiza las siguientes sentencias en lenguaje C? Especifique el resultado en formato binario y hexadecimal.  
-  	
-  	\begin{itemize}
-  \item $GPIO_PORTA_DATA_R ^= 0x01$
-  \item $GPIO_PORTA_DATA_R |= 0x01 $
-  \item $GPIO_PORTA_DATA_R \&= 0x10$
-  \item $GPIO_PORTA_DATA_R \&= (~0x10) $	
-    \end{itemize}
-Explique qué función realiza cada sentencia según la $máscara$ (valor del lado derecho del signo $igual$). 
+  	\item ¿De qué forma se limpia la bandera de ocurrencia de interrupción para el SysTick? 
+  	\item ¿Cuál es la instrucción en ensamblador para habilitar y cual es para deshabilitar todas las Interrupciones?
+  	\item ¿En qué registros se puede monitorizar una bandera del estado de un evento que puede disparar una Interrupción? 
+  	\item ¿En qué registros se habilita una interrupción Raw para su manejo por el NVIC?
+  	\item ¿En qué registros se puede monitorizar una bandera del estado de una interrupción que se pasa al NVIC?
+  	\item ¿En qué registros se limpian las banderas indicadoras de la ocurrencia de Interrupción para? 
   	  
   \end{enumerate}
+
+
+
 
 \section{Conclusiones.}
   \begin{thebibliography}{}                           % Bibliografia

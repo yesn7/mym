@@ -39,7 +39,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \author{Pérez Navarro Maria Yesica - 414039694}  % Autor de la actividad.
-\title{Práctica 08: Puertos de entrada/salida 2.}                % Titulo de la actividad.
+\title{Previo 12: Modulo de comunicación UART.}                % Titulo de la actividad.
 \date{dd/mm/yyyy}                                           % Fecha de entrega.
 \def\universidad{Universidad Nacional Autónoma de México}   % Nombre de la universidad.
 \def\facultad{Facultad de Ingeniería}                              % Nombre de la facultdad.
@@ -72,77 +72,21 @@
   %\newpage                                            % Inserta una pagina nueva.
   \pagenumbering{arabic}                              % Muestra el numero de pagina.
   
-  \section{Seguridad en la Ejecución.}
-  \begin{table}[H]
-  	\begin{tabular}{|l|l|l|}
-  		\hline
-  		 & Peligro o fuente de energía & Riesgo asociado  \\ \hline
-  		1 & Manejo de Corriente Alterna &Electrochoque    \\ \hline
-  		2 & Manejo de corriente Continua & Daño al equipo \\ \hline
-  	\end{tabular}
-  	\centering
-  \end{table}
-
-\section{Objetivos de aprendizaje.}
-\begin{itemize}
-	\item El alumno programará los Puertos de Entrada/Salida del procesador ARM M4 tanto en lenguaje ensamblador como en lenguaje C, para emplearlos como puertos digitales de Propósito General, e implementará la conexión de hardware externo al microcontrolador tomando en cuenta los parámetros eléctricos nominales de las terminales. 
-\end{itemize}
-
-\section{Material y equipo.}
- 
-\begin{itemize}
-	\item Hoja de datos del microcontrolador TM4C1294NCPDT. 
-	\item Guía mínima, Worksheet Impresa. 
-	\item Sistema de desarrollo. 
-	\item Cable BNC y Osciloscopio. 
-	\item Leds, Switches N.O. y resistencias de 330Ohms a 1kOhm, alambre AWG22.  
-\end{itemize}
+  \section{Actividad previa.}                   
   
-
-  
-\section{Actividad previa.}                   
-
   \begin{enumerate}[a)]
-	\item ¿Para qué sirve la directiva \#define? 
-	
-	\item ¿Qué es una variable global y una local? 
-	
-	\item ¿Cómo se hace referencia a una dirección de un registro en lenguaje C empleando la directiva \#define? 
-	
-	\item Describa el modo de funcionamiento de bits direccionables (o direccionamiento de bits específico) en un puerto GPIO. 
-	En los programas, main.c y main2.c  complete los valores de configuración faltantes (marcados como (a), (b), etc… ) considerando para el procesador empleado TM4C1294. Tome en cuenta los operadores lógicos en C :$ ^= , |= , \&= $. 
-	
-	\item Escriba el código para implementar un retardo de aproximadamente 1 segundo y agregarlo entre cada cambio de estado del LED(2). 
-	
-\end{enumerate}
-% Insertamos nueva seccion, SI aparece en la tabla de 
-
-
-\section{Desarrollo}
- 
-Implemente una rutina de inicialización para las terminales PH0 y PH1 como de salida digital y las terminales PK5 y PK7 como de entrada digital. Identifique las terminales. Conecte en las terminales de salida un Led en cada una empleando una resistencia limitadora de corriente. Su activación se hará con lógica positiva. Conecte en las terminales de entrada un Switch en cada una alambrados con lógica positiva. 
-\\
-Implemente un ciclo continuo para leer  el estado de los switches y reflejarlo en los Leds de acuerdo a la siguiente tabla: 
-\\
-Determine si es necesario configurar el registro de resistencias de Pull-up o Pull-down. Declare en el archivo fuente, los nombres de los registros empleados y sus direcciones empleando la directiva \#define. Consulte el archivo $tm4c1294ncpdt.h$ 
- 
-  \section{Cuestionario}
-  
-  \begin{enumerate}
-
-  	\item Sea el registro $GPIO_PORTA_DATA_R$ un registro definido en lenguaje C conteniendo el dato 0x92. ¿qué operación realiza las siguientes sentencias en lenguaje C? Especifique el resultado en formato binario y hexadecimal.  
+  	\item Leer la guía proporcionada. 
+  	\item Configurar los registros con los valores faltantes en el código proporcionado. 
+  	\item ¿Cuál es la señalización del protocolo Serial RS232? ¿Cuáles son las velocidades más comunes para el protocolo RS232? 
+  	\item ¿Cuál es la duración de un bit si la velocidad de transmisión es de 9600 bits/s? 
+  	\item ¿Qué es la paridad de un número y el bit de paridad? 
+  	\item ¿Cuáles son los niveles de voltaje de las líneas RS232 y que circuito sirve para acondicionamiento de los niveles de voltaje a 5 V? 
   	
-  	\begin{itemize}
-  \item $GPIO_PORTA_DATA_R ^= 0x01$
-  \item $GPIO_PORTA_DATA_R |= 0x01 $
-  \item $GPIO_PORTA_DATA_R \&= 0x10$
-  \item $GPIO_PORTA_DATA_R \&= (~0x10) $	
-    \end{itemize}
-Explique qué función realiza cada sentencia según la $máscara$ (valor del lado derecho del signo $igual$). 
-  	  
+  	
   \end{enumerate}
-
-\section{Conclusiones.}
+                    % Insertamos nueva seccion, SI aparece en la tabla de contenido.
+ 
+  
   \begin{thebibliography}{}                           % Bibliografia
     \bibitem{ref:cita}                                % Etiqueta con la que se hara la referencia o cita.
       Como citar: \url{http://www.cva.itesm.mx/biblioteca/pagina_con_formato_version_oct/apa.htm} % URL de apoyo para citar.
